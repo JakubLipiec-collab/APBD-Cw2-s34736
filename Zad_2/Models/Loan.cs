@@ -10,7 +10,7 @@ public class Loan
     public DateTime ReturnDate { get; private set; }
     public decimal PenaltyAmount { get; private set; }
 
-    public bool IsActive => ReturnDate == null;
+    public bool IsActive => ReturnDate < DateTime.Now;
     public bool IsOverdue => IsActive && DateTime.Now > DueTime;
     
     public Loan(User borrower, Equipment item, int rentDays){
