@@ -8,9 +8,9 @@ public abstract class User
     
    public abstract int MaxActiveLoans { get; }
 
-   protected User(String name, string lastName)
+   protected User(string name, string lastName)
    {
-      if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastName))
+      if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName))
          throw new ArgumentException("Name and last name cannot be empty");
       Name = name;
       LastName = lastName;
