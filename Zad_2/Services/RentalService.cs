@@ -2,13 +2,7 @@
 using Zad_2.Exceptions;
 using Zad_2.Repositories;
 
-namespace Zad_2.Services
-{
-    public interface IRentalService
-    {
-        Loan RentEquipment(User user, Equipment item, int days);
-        decimal ReturnEquipment(Loan loan);
-    }
+namespace Zad_2.Services;
     public class RentalService : IRentalService
     {
         private readonly MemoryRepository _repository;
@@ -55,4 +49,3 @@ namespace Zad_2.Services
             return penalty;
         }
     }
-}
