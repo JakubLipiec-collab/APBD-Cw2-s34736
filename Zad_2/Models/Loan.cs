@@ -9,9 +9,7 @@ public class Loan
     public DateTime DueTime  { get; private set; }
     public DateTime ReturnDate { get; private set; }
     public decimal PenaltyAmount { get; private set; }
-
-    public bool IsActive => ReturnDate < DateTime.Now;
-    public bool IsOverdue => IsActive && DateTime.Now > DueTime;
+    public bool IsActive { get; private set; } = true;
     
     public Loan(User borrower, Equipment item, int rentDays){
         Borrower = borrower;
@@ -23,5 +21,6 @@ public class Loan
     public void CompleteLoan(decimal penaltyAmount){
         PenaltyAmount = penaltyAmount;
         ReturnDate = DateTime.Now;
+        IsActive = false;
     }
 }
